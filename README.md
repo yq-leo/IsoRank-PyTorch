@@ -1,5 +1,5 @@
 # IsoRank-Python
-PyTorch Implementation of IsoRank in "[Global alignment of multiple protein interaction networks with application to functional orthology detection](https://doi.org/10.1073/pnas.0806627105)" in PNAS 2008
+PyTorch Implementation of IsoRank in "[Global alignment of multiple protein interaction networks with application to functional orthology detection](https://doi.org/10.1073/pnas.0806627105)" in PNAS 2008. The official website is [here](https://cb.csail.mit.edu/mna/)
 
 ## Requirements
 - numpy
