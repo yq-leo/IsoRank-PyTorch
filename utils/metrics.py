@@ -51,7 +51,6 @@ def hits_ks_scores(similarity, test_pairs, ks=None):
     ranks1 = torch.argsort(-similarity[test_pairs[:, 0]], dim=1)
     ranks2 = torch.argsort(-similarity.T[test_pairs[:, 1]], dim=1)
 
-    # test_pairs = torch.from_numpy(test_pairs).to(torch.int64)
     signal1_hit = ranks1 == test_pairs[:, 1].view(-1, 1)
     signal2_hit = ranks2 == test_pairs[:, 0].view(-1, 1)
     for k in ks:
