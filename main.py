@@ -1,7 +1,7 @@
 from args import make_args
 from utils.data import load_dataset, get_adj_from_edge_index
-from isorank import isorank
 from utils.metrics import *
+from isorank import isorank
 
 import time
 
