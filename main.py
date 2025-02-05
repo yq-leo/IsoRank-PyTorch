@@ -3,9 +3,12 @@ from utils.data import load_dataset, get_adj_from_edge_index
 from isorank import isorank
 from utils.metrics import *
 
+import time
+
 
 if __name__ == '__main__':
     args = make_args()
+    assert args.device == 'cpu' or torch.cuda.is_available(), 'CUDA is not available'
 
     edge_index1, edge_index2, anchor_links, test_pairs = load_dataset(f'datasets/{args.dataset}', 0.2)
 
@@ -14,7 +17,9 @@ if __name__ == '__main__':
     adj2 = get_adj_from_edge_index(edge_index2, n2)
 
     anchor_links = torch.from_numpy(anchor_links)
-    similarity = isorank(adj1, adj2, anchor_links, args.alpha, args.max_iter)
+    start = time.time()
+    similarity = isorank(adj1, adj2, anchor_links, args.alpha, args.max_iter, device=args.device)
+    print(f'IsoRank time: {time.time() - start:.4f}s')
 
     test_pairs = torch.from_numpy(test_pairs)
     hits_ks = hits_ks_ltr_scores(similarity, test_pairs, ks=[1, 10, 30, 50])

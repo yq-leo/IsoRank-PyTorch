@@ -8,5 +8,6 @@ def make_args():
                         help='available datasets: phone-email, ACM-DBLP, foursquare-twitter')
     parser.add_argument('--alpha', dest='alpha', type=float, default=0.4, help='soft update parameter')
     parser.add_argument('--max_iter', dest='max_iter', type=int, default=100, help='maximum number of isorank iteration')
+    parser.add_argument('--gpu', dest='device', action='store_const', const='cuda', default='cpu', help='use GPU')
 
     return parser.parse_args()
