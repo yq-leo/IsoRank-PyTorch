@@ -11,7 +11,7 @@ PyTorch Implementation of IsoRank in "[Global alignment of multiple protein inte
 - ACM-DBLP
 
 ## How to use
-Run the following command to run IsoRank, replace `{dataset}` with your dataset name:
+To run IsoRank, execute the following command and replace `{dataset}` with your dataset name:
 ```sh
 python main.py --dataset={dataset}
 ```
